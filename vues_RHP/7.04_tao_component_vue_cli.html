@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="link/vue.js"></script>
+</head>
+<body>
+	<div id='app'>
+		<mycomponent></mycomponent>
+		<mycomponent></mycomponent>
+		<mycomponent></mycomponent>
+		<mycomponent></mycomponent>
+
+	</div>
+	<hr>
+	<!-- <div id='app1'>
+		<mycomponent></mycomponent>
+		<mycomponent></mycomponent>
+		<mycomponent></mycomponent>
+		<mycomponent></mycomponent>
+
+	</div> -->
+</body>
+<script type="text/javascript">
+	// var data = {
+	// 	test: 'hello hihi',
+	// }
+	var cpt = {
+		data: function(){
+			return {
+				test: 'heheheheh'
+			}
+		},
+		template: '<h2>hsay: {{ test }}<br><button @click="changetest">change</button></h2>',
+		methods: {
+			changetest: function(){
+				this.test = 'share'
+			}
+		}
+	};
+	new Vue({
+		el: "#app",
+		components: {
+			'mycomponent': cpt
+		}
+	})
+	new Vue({
+		el: "#app1",
+		components: {
+			'mycomponent': cpt
+		}
+	})
+</script>
+</html>

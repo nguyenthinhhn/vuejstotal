@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="link/vue.js"></script>
+</head>
+<body>
+	<div id='app'>
+		<h1>{{ title }}</h1>
+		<h1>after computed: {{ lowercaseTitle }}</h1>
+		<button @click="show">Show</button>
+		<p v-if="showParagraph">sjxkfdf</p>
+	</div>
+</body>
+<script type="text/javascript">
+	new Vue({
+		el: '#app',
+		data: {
+			title: 'The vue',
+			showParagraph: false
+		},
+		methods: {
+			show: function(){
+				this.showParagraph = true;
+				this.updateTitle('this vue update title(update)');
+			},
+			updateTitle: function(title) {
+				this.title = title;
+			}
+		},
+		computed: {
+			lowercaseTitle: function() {
+				return this.title.toLowerCase();
+			}
+		},
+		watch: {
+			title: function(value) {
+				alert('ssfs: ' + value);
+			}
+		}
+	})
+</script>
+</html>

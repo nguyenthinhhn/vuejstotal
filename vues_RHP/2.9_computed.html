@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="link/vue.js"></script>
+</head>
+<body>
+	<div id='obj'>
+		<p>gia tri a : {{ tanga }}</p>
+		<p>gia tri b : {{ tangb }}</p>
+		<button v-on:click="a++">Tanga</button>
+		<button v-on:click="b++">Tangb</button>
+	</div>
+</body>
+<script type="text/javascript">
+	new Vue({
+		el: "#obj",
+		data: {
+			a: 0,
+			b: 0,
+		},
+		computed: {
+			tanga: function(){
+				console.log("Gọi function a");
+				return this.a;
+			},
+			tangb: function(){
+				console.log("gọi function b ");
+				return this.b;
+			}
+		}
+	})
+
+	// computed gần giống method nhưng các function trong cuomputer chỉ là các thuộc tính nên khi gọi không có ngoặc (functionname() -> functionname ),
+	// computer chỉ gọi thuộc tính nào được gọi còn method gọi tất cả các function  có trong nó ,
+	// computer có các thuộc tính còn method là  các function 
+</script>
+</html>

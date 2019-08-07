@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="link/vue.js"></script>
+</head>
+<body>
+	<div id='obj'>
+		<ul>
+			<li v-for="menu in menus">{{ menu }}</li>
+		</ul>
+		
+		<template v-for="(menu, index) in menus">
+			<h3>{{ index }} - {{ menu }}</h3>
+			
+		</template>
+
+		<ul>
+			<li v-for="student in students">{{ student.name}} - {{ student.age}} - {{ student.class}}</li>
+		</ul>
+
+		<div v-for="n in 10"> {{ n }}</div>
+
+	</div>
+</body>
+<script type="text/javascript">
+	new Vue({
+		el: "#obj",
+		data: {
+			menus: ['home', 'About', 'blog', 'contact'],
+			students: [
+			{name: 'sky', age: 30, class: 'cntt'},
+			{name: 'blue', age: 32, class: 'attt'},
+			{name: 'jont', age: 34, class: 'dtvt'},
+			]
+		},
+	})
+</script>
+</html>

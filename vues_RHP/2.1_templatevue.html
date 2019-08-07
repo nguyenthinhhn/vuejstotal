@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="link/vue.js"></script>
+</head>
+<body>
+	<div id='obj'>
+		<p>{{ showPost() }}</p>
+		
+	</div>
+</body>
+<script type="text/javascript">
+	new Vue({
+		el: "#obj",
+		data: {
+			noidung: 'chao cac ban ',
+			title: 'day la title ',
+			body: 'day la bo dy ',
+		},
+		methods: {
+			showPost: function(){
+				return this.title+this.body;
+			}
+		}
+	})
+</script>
+</html>

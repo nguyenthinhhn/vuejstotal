@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="link/vue.js"></script>
+	<style>
+		.vuong{
+			width: 100px;
+			height: 100px;
+			display: inline-block;
+			background-color: blue;
+			margin: 10px;
+		}
+		.do{
+			background-color: red;
+		}
+		.black{
+			background-color: black;
+		}
+	</style>
+</head>
+<body>
+	<div id='app'>
+		<div class="vuong" @click="quanlydo = !quanlydo" :class="{ do: quanlydo }"></div>
+		<div class="vuong"></div>
+		<div class="vuong"></div>
+		<div class="vuong"></div>
+	</div>
+</body>
+<script type="text/javascript">
+	new Vue({
+		el: '#app',
+		data: {
+			quanlydo: false 
+		},
+	});
+</script>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="link/vue.js"></script>
+</head>
+<body>
+	<div id="obj">
+		<input type="text" v-on:input="changeValue">
+		<p>{{ noidung }}</p>
+
+		<span v-bind:title="message">
+		    Rê chuột lên đây một vài giây để xem thuộc tính `title` được bind!
+		</span>
+		<span v-if="seen">Thoắt ẩn thoắt hiện</span><br>
+
+		<ol>
+		    <li v-for="todo in todos">
+		      {{ todo.text }}
+		    </li>
+		 </ol>
+
+		<p>{{ thongdiep }}</p>
+  		<input v-model="thongdiep">
+		<ol>
+		<todo-item
+		      v-for="item in groceryList"
+		      v-bind:todo="item"
+		      v-bind:key="item.id">
+	    </todo-item>
+	    </ol>
+	</div>
+</body>
+<script type="text/javascript">
+	new Vue({
+		el: '#obj',
+		data: {
+			thongdiep: 'xửa tại đây',
+			noidung: 'hello word ahhhh',
+			message: 'Bạn đã mở trang này vào ' + new Date().toLocaleString(),
+			seen: true,
+			todos: [
+		      { text: 'Học JavaScript' },
+		      { text: 'Học Vue' },
+		      { text: 'Xây dựng cái gì đó hay ho' }
+		    ],
+		    groceryList: [
+		       { id: 0, text: 'Cà pháo' },
+		       { id: 1, text: 'Mắm tôm' },
+		       { id: 2, text: 'Miễn ăn được là được' }
+		    ]
+		},
+		methods: {
+			changeValue: function(event){
+				this.noidung =  event.target.value+ ".com";
+			}
+		}
+
+	});
+	
+	Vue.component('todo-item', {
+	  // Ở đây chúng ta khai báo cho component todo-item 
+	  // nhận một "prop" (có thể hiểu là một thuộc tính tùy biến) 
+	  // có tên là "todo".
+	  props: ['todo'],
+	  template: '<li>{{ todo.text }}</li>'
+	})
+
+</script>
+</html>

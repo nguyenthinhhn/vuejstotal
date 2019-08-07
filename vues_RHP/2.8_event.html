@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="link/vue.js"></script>
+</head>
+<body>
+	<div id='obj'>
+		<div v-on:mouseover="tinhToaDo">
+			<h1>bấm nút để lắng nghe sự kiện</h1>
+			<button v-on:click="tangGiaTri">Tăng</button>
+			<button v-on:click="dem++">Tăng truc tiep</button>
+			<button v-on:click="giamGiaTri">Giảm</button>
+			<p>Giá trị : {{ dem }} </p><br>
+			<p>Giá trị : {{ dem > 20 ? 'bạn vượt quá mức giơi hạn!' : 'Đang nằm trong mức cho phép'}} </p><br>
+			<p >Tọa độ chuột: {{ x }} / {{ y }}</p>
+			<span v-on:mouseover="dungChuot">Dừng sự kiện</span>
+			<br>
+
+			
+			<div>
+				<input type="text" v-on:keyup.enter.space="banPhim">
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	new Vue({
+		el: "#obj",
+		data: {
+			dem: 0,
+			x: 0,
+			y:0,
+		},
+		methods: {
+			tangGiaTri:function(){
+				this.dem++;
+			},
+			giamGiaTri:function(){
+				this.dem--;
+			},
+			tinhToaDo: function(event){
+				this.x = event.clientX;
+				this.y = event.clientY;
+			},
+			dungChuot: function(event){
+				event.stopPropagation();
+			},
+			banPhim: function(event){
+				alert(event.target.value);
+			}
+		}
+		
+	})
+</script>
+</html>

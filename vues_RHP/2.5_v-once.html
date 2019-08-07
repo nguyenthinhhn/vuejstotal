@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="link/vue.js"></script>
+</head>
+<body>
+	<div id='obj'>
+		<p v-once> {{ title }}- {{ showPost() }}</p>
+		<!-- v-once la giữ nguyên cái ban đầu -->
+	</div>
+</body>
+<script type="text/javascript">
+	new Vue({
+		el: "#obj",
+		data: {
+			title: 'day la title ban đầu',
+		},
+		methods: {
+			showPost: function(){
+				this.title = 'title thay đổi'
+				return this.title;
+			}
+		}
+	})
+</script>
+</html>
